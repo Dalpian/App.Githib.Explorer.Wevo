@@ -1,0 +1,50 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Github explorer</li>
+    </ol>
+</nav>
+
+<div class="container">
+  <div class="card detail">
+      <h5 class="card-header">Detalhes do usuário github</h5>
+      <div class="card-body">
+
+            <div>
+                <label for="model">Id: <h5>{{detail.id}}</h5></label>
+            </div> 
+         
+            <div>
+                <label for="model">Login: <h5>{{detail.login}}</h5></label>
+            </div>
+          
+            <div>
+                    <label for="model">Profile URL: <a href={{detail.html_url}}><h5>{{detail.html_url}}</h5></a></label>
+            </div>
+          
+            <div>
+            <label for="model">Date of the login creation: <h5>{{detail.created_at | date: 'MM/dd/yyyy' }}</h5></label>
+            </div>
+      </div>
+  </div>
+
+  <div class="card list-repos">
+    <h5 class="card-header">Lista de repositórios do usuário</h5>
+    <div class="card-body">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let repo of repos">
+              <td>{{repo.id}}</td>
+              <td>{{repo.name}}</td>
+              <td><a href={{repo.html_url}}>{{repo.html_url}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Github explorer</li>
+  </ol>
+</nav>
+<div class="container">
+  
+  <div class="card list-user">
+    <h5 class="card-header">User list</h5>
+    <div class="card-body">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Login</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of userList">
+              <td>{{user.id}}</td>
+              <td>{{user.login}}</td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm" [routerLink]="['/detail', user.login]">Details</button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+              <button type="button" class="btn btn-secondary btn-first-page" (click)="getUsers()">1</button>
+              <button type="button" class="btn btn-primary btn-next-page" (click)="nextPage()">Next page</button>
+          </tfoot>
+        </table>
+    </div>
+  </div>
+</div>
